@@ -1,0 +1,21 @@
+{
+  "name": "codejam2018",
+  "version": "1.0.0",
+  "description": "For client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd client && npm install && npm start",
+    "dev": "concurrently --kill-others-on-fail \"npm run client\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericvuong1/codejam2018.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericvuong1/codejam2018/issues"
+  },
+  "homepage": "https://github.com/ericvuong1/codejam2018#readme"
+}
