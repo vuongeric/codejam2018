@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "cd client && npm install && npm start",
-    "dev": "concurrently --kill-others-on-fail \"npm run client\" "
+    "client": "cd clientDan && cd CaptionThis && npm install && npm start",
+    "server": "cd server && npm install && nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run client\" \"npm run server\""
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/ericvuong1/codejam2018/issues"
   },
-  "homepage": "https://github.com/ericvuong1/codejam2018#readme"
+  "homepage": "https://github.com/ericvuong1/codejam2018#readme",
+  "dependencies": {
+    "concurrently": "^4.0.1"
+  }
 }
