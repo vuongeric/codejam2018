@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { UploadEvent, UploadFile, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
-import {IQuote} from "./model/quote";
 import {ICaptionThisResponse} from "./model/CaptionThisResponse";
 
 @Component({
@@ -31,7 +30,7 @@ export class AppComponent {
           formData.append('image', file, droppedFile.relativePath)
 
 
-          this.http.post('http://localhost:5000/api/image', formData, {
+          this.http.post<ICaptionThisResponse>('http://localhost:5000/api/image', formData, {
             reportProgress: true,
             observe: 'events' 
           })
@@ -39,7 +38,8 @@ export class AppComponent {
               if (event.type === HttpEventType.UploadProgress) {
                 console.log('Upload Progress: ' + Math.round(event.loaded / event.total) * 100 + '%');
               } else if (event.type === HttpEventType.Response) {
-                this.response= event.body;
+                console.log(event.body);
+                this.response = event.body;
                 console.log(this.response);
               }
             })
