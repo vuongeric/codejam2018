@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { UploadEvent, UploadFile, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
+import {IQuote} from "./model/quote";
+import {ICaptionThisResponse} from "./model/CaptionThisResponse";
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,7 @@ import { UploadEvent, UploadFile, FileSystemFileEntry, FileSystemDirectoryEntry 
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  private response: ICaptionThisResponse;
 
   constructor(private http: HttpClient) { }
 
@@ -36,7 +39,8 @@ export class AppComponent {
               if (event.type === HttpEventType.UploadProgress) {
                 console.log('Upload Progress: ' + Math.round(event.loaded / event.total) * 100 + '%');
               } else if (event.type === HttpEventType.Response) {
-                console.log(event);
+                this.response= event.body;
+                console.log(this.response);
               }
             })
 
