@@ -5,7 +5,17 @@ var config = require("../../config");
 var fs = require("fs");
 const JWT_SECRET = config.jwt.secret;
 var multer = require('multer')
-var upload = multer({ dest: 'uploads/' })
+
+var storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, './uploads');
+  },
+  filename: function (req, file, callback) {
+    callback(null, 'TEMP_FILE');
+  }
+});
+var upload = multer({ storage: storage })
+
 
 module.exports = function (app) {
   //--------USERS--------//
