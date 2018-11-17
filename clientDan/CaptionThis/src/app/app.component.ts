@@ -35,7 +35,7 @@ export class AppComponent {
           var reader = new FileReader();
           reader.readAsDataURL(file); // read file as data url
           reader.onload = (event) => { // called once readAsDataURL is completed
-            this.url = JSON.parse(event.target.result);
+            this.url = (<HTMLInputElement>event.target).value;
             this.showImage = true;
           }
 
@@ -71,13 +71,4 @@ export class AppComponent {
 
   onSelectFile(event) { // called each time file input changes
   }
-}
-
-interface FileReaderEventTarget extends EventTarget {
-  result: string
-}
-
-interface FileReaderEvent extends Event {
-  target: FileReaderEventTarget;
-  getMessage(): string;
 }
