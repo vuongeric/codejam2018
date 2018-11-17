@@ -14,8 +14,10 @@ module.exports = {
             })
 
             QuotesService.findQuoteWithKeywords(keywords, function (quotes) {
-                console.log(keywords);
-                return done(quotes);
+                return done({
+                    quotes: quotes,
+                    keywords: keywords
+                    });
             })
         })
 
