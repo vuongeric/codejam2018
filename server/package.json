@@ -21,22 +21,22 @@
   },
   "homepage": "https://github.com/ericvuong1/fudo#readme",
   "dependencies": {
-    "es6-promise": "^4.2.5",
-    "isomorphic-fetch": "^2.2.1",
-    "watson-developer-cloud": "^3.13.0",
     "@google/maps": "^0.5.4",
     "@material-ui/core": "latest",
     "@material-ui/icons": "^2.0.3",
     "body-parser": "^1.18.3",
     "classnames": "^2.2.6",
     "concurrently": "^3.6.1",
+    "es6-promise": "^4.2.5",
     "express": "^4.16.3",
+    "isomorphic-fetch": "^2.2.1",
     "jsonwebtoken": "^8.3.0",
     "jss": "latest",
     "material-ui": "^0.20.2",
     "material-ui-rating": "^2.0.0",
     "mongodb": "^3.1.4",
     "mongoose": "^5.2.9",
+    "multer": "^1.4.1",
     "nodemon": "^1.18.3",
     "prop-types": "latest",
     "react": "latest",
@@ -52,6 +52,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "schema-object": "^4.0.11",
-    "typeface-roboto": "0.0.54"
+    "typeface-roboto": "0.0.54",
+    "watson-developer-cloud": "^3.13.0"
   }
 }
