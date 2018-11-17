@@ -1,33 +1,11 @@
-<mat-sidenav-container>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-     <div>
-       <a>
-          CaptionThis
-       </a>
-     </div>
-    </mat-toolbar>
-    <main>
-    </main>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div>
+  <img [src]="url" class="image" *ngIf="showImage"> <br/>
+</div>
 
-<div class="center" style="top: 150px">
-  <file-drop headertext="Drop files here" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
-    <span>optional content (don't set headertext then)</span>
-  </file-drop>
-  <div class="upload-table">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-        </tr>
-      </thead>
-      <tbody class="upload-name-style">
-        <tr *ngFor="let item of files; let i=index">
-          <td><strong>{{ item.relativePath }}</strong></td>
-        </tr>
-      </tbody>
-    </table>
+<div class="drop-zone">
+  <div style="top: 150px">
+    <file-drop headertext="Drop files here" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
+               (onFileLeave)="fileLeave($event)">
+    </file-drop>
   </div>
 </div>

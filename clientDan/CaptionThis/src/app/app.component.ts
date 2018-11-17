@@ -10,6 +10,8 @@ import {ICaptionThisResponse} from "./model/CaptionThisResponse";
 })
 export class AppComponent {
   private response: ICaptionThisResponse;
+  private url: any;
+  private showImage: boolean = false;
 
   constructor(private http: HttpClient) { }
 
@@ -25,10 +27,17 @@ export class AppComponent {
         fileEntry.file((file: File) => {
 
           console.log(droppedFile.relativePath, file);
-
+          console.log(droppedFile);
           const formData = new FormData()
           formData.append('image', file, droppedFile.relativePath)
+          console.log(file);
 
+            var reader = new FileReader();
+            reader.readAsDataURL(file); // read file as data url
+            reader.onload = (event) => { // called once readAsDataURL is completed
+              this.url = event.target.result;
+              this.showImage = true;
+            }
 
           this.http.post<ICaptionThisResponse>('http://localhost:5000/api/image', formData, {
             reportProgress: true,
@@ -38,7 +47,6 @@ export class AppComponent {
               if (event.type === HttpEventType.UploadProgress) {
                 console.log('Upload Progress: ' + Math.round(event.loaded / event.total) * 100 + '%');
               } else if (event.type === HttpEventType.Response) {
-                console.log(event.body);
                 this.response = event.body;
                 console.log(this.response);
               }
@@ -59,5 +67,8 @@ export class AppComponent {
 
   public fileLeave(event) {
     console.log(event);
+  }
+
+  onSelectFile(event) { // called each time file input changes
   }
 }
