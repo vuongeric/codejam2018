@@ -1,4 +1,3 @@
-const userController = require("../controllers/UsersController");
 const imageController = require("../controllers/ImagesController");
 var jwt = require("jsonwebtoken");
 var config = require("../../config");
@@ -18,13 +17,6 @@ var upload = multer({ storage: storage })
 
 
 module.exports = function (app) {
-  //--------USERS--------//
-  //Read User
-  app.get("/api/user/:userid", function (req, res) {
-    userController.getUser(req.params.userid, result => {
-      res.send(result);
-    });
-  });
 
   //--------IBM IMAGE RECOGNITION--------//
   app.post("/api/image", upload.single('image'), function (req, res) {

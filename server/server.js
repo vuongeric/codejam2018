@@ -18,8 +18,6 @@ app.use(function (req, res, next) {
   next()
 });
 
-// app.use('/api/places', require('./routes/PlacesRoutes')); // use this for router
-
 require('./routes/routes')(app);
 
 app.listen(process.env.PORT || port);
