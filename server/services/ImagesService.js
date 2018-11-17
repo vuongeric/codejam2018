@@ -12,6 +12,7 @@ module.exports = {
     getImageCategory: function(request, done) {
         // Classify an image
 
+        //TODO: actually get the file uploaded
         var images_file= fs.createReadStream('./services/samples/beach.jpg');
         var classifier_ids = ["default"];
         var threshold = 0.6;
@@ -21,7 +22,6 @@ module.exports = {
             classifier_ids: classifier_ids,
             threshold: threshold
         };
-        console.log(params);
     
         visualRecognition.classify(params, function(err, response) {
             if (err) {
