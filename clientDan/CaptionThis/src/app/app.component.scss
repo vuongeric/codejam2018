@@ -41,13 +41,19 @@ a:active {
 }
 
 .drop-zone {
-  padding: 50px 100px 50px 100px;
+  padding: 0px 100px 50px 100px;
 }
 
 .image {
-  height: 300px;
-  padding: 50px;
+  height: 100%;
   margin: auto;
   display: flex;
+  padding: auto;
   border-radius: 4px;
+}
+
+.display {
+  height: 60vh;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

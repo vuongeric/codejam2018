@@ -1,9 +1,9 @@
-<div>
+<div class="display">
   <img [src]="url" class="image" *ngIf="showImage"> <br/>
 </div>
 
 <div class="drop-zone">
-  <div style="top: 150px">
+  <div>
     <file-drop headertext="Drop files here" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
                (onFileLeave)="fileLeave($event)">
     </file-drop>
