@@ -1,46 +1,25 @@
-/**
- * Angular 2 decorators and services
- */
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { environment } from 'environments/environment';
-import { AppState } from './app.service';
+import { Component } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
-export const ROOT_SELECTOR = 'app';
-
-/**
- * App Component
- * Top Level Component
- */
 @Component({
-  selector: ROOT_SELECTOR,
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: [
-    './app.component.css'
-  ],
-  templateUrl: './app.component.html',
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"]
 })
-export class AppComponent implements OnInit {
-  public name = 'Angular Starter';
-  public tipe = 'assets/img/tipe.png';
-  public twitter = 'https://twitter.com/gdi2290';
-  public url = 'https://tipe.io';
-  public showDevModule: boolean = environment.showDevModule;
-
-  constructor(
-    public appState: AppState
-  ) {}
-
-  public ngOnInit() {
-    console.log('Initial App State', this.appState.state);
-    console.log(this.appState);
+export class AppComponent {
+  selectedFile: File = null;
+  constructor(private http: HttpClient) { }
+  onFileSelected(event) {
+    this.selectedFile = <File>event.target.files[0];
   }
-
+  onUpload() {
+    const fd = new FormData();
+    // const test = { "id": "1" };
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+    // console.log(test);
+    console.log(fd);
+    this.http.post("http://localhost:5000/api/image/", fd).subscribe(res => {
+      console.log(res);
+    });
+  }
 }
-
-/**
- * Please review the https://github.com/AngularClass/angular-examples/ repo for
- * more angular app examples that you may copy/paste
- * (The examples may not be updated as quickly. Please open an issue on github for us to update it)
- * For help or questions please contact us at @AngularClass on twitter
- * or our chat on Slack at https://AngularClass.com/slack-join
- */

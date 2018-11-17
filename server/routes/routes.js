@@ -1,26 +1,41 @@
-
-const userController = require('../controllers/UsersController');
-const imageController = require('../controllers/ImagesController');
-var jwt = require('jsonwebtoken');
-var config = require('../../config');
-var fs = require('fs');
+const userController = require("../controllers/UsersController");
+const imageController = require("../controllers/ImagesController");
+var jwt = require("jsonwebtoken");
+var config = require("../../config");
+var fs = require("fs");
 const JWT_SECRET = config.jwt.secret;
+var multer = require('multer')
 
-module.exports = function(app) {
+var storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, './uploads');
+  },
+  filename: function (req, file, callback) {
+    callback(null, 'TEMP_FILE');
+  }
+});
+var upload = multer({ storage: storage })
 
-    //--------USERS--------//
-    //Read User
-    app.get('/api/user/:userid', function(req, res) {
-        userController.getUser(req.params.userid, (result) => {
-            res.send(result);
-        })
+
+module.exports = function (app) {
+  //--------USERS--------//
+  //Read User
+  app.get("/api/user/:userid", function (req, res) {
+    userController.getUser(req.params.userid, result => {
+      res.send(result);
     });
+  });
 
+  //--------IBM IMAGE RECOGNITION--------//
+  app.post("/api/image", upload.single('image'), function (req, res) {
+    console.log(req.file);
+    // fs.readFile(req.files.file.path, function(err, image) {
+    //   console.log(fs);
+    // });
+    // console.log(req.image);
+    imageController.getImageCategory(req.params, result => {
+      res.send(result);
+    });
+  });
+};
 
-    //--------IBM IMAGE RECOGNITION--------//
-    app.post('/api/image', function(req, res) {
-        imageController.getImageCategory(req.params, (result) => {
-            res.send(result);
-        })
-    })
-}
