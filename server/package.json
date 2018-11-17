@@ -1,0 +1,54 @@
+{
+  "name": "fudo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd fudoapi && node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "cd fudoapi && npm install && nodemon server.js",
+    "client": "cd fudoui && npm install && npm start",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericvuong1/fudo.git"
+  },
+  "author": "Eric Vuong, Kevin Ye, Victor Vuong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericvuong1/fudo/issues"
+  },
+  "homepage": "https://github.com/ericvuong1/fudo#readme",
+  "dependencies": {
+    "@google/maps": "^0.5.4",
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "^2.0.3",
+    "body-parser": "^1.18.3",
+    "classnames": "^2.2.6",
+    "concurrently": "^3.6.1",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "jss": "latest",
+    "material-ui": "^0.20.2",
+    "material-ui-rating": "^2.0.0",
+    "mongodb": "^3.1.4",
+    "mongoose": "^5.2.9",
+    "nodemon": "^1.18.3",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "latest",
+    "react-jss": "latest",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "latest",
+    "react-spinners": "^0.4.4",
+    "react-swipe-card": "^0.1.4",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "schema-object": "^4.0.11",
+    "typeface-roboto": "0.0.54"
+  }
+}

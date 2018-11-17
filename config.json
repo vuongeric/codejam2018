@@ -1,0 +1,10 @@
+{
+    "server": {
+        "port": 5000
+    },
+    "db": "mongodb://fudodb:Asdasd123@ds133642.mlab.com:33642/fudo_users",
+    "jwt": {
+        "secret": "ev_2018"
+    }
+}
+
