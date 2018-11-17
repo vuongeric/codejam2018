@@ -18,7 +18,7 @@ var params = {
 	classifier_ids: classifier_ids,
 	threshold: threshold
 };
-
+console.log(params);
 visualRecognition.classify(params, function(err, response) {
 	if (err)
 	console.log(err);

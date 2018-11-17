@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/ericvuong1/fudo#readme",
   "dependencies": {
+    "watson-developer-cloud": "^3.13.0",
     "@google/maps": "^0.5.4",
     "@material-ui/core": "latest",
     "@material-ui/icons": "^2.0.3",
