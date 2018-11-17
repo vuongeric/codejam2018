@@ -1,6 +1,5 @@
 var ImagesService = require('../services/ImagesService');
 var QuotesService = require('../services/QuotesService');
-var CaptionResponse = require('../models/CaptionResponse')
 
 module.exports = {
 

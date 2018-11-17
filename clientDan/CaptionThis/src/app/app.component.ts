@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
 import { UploadEvent, UploadFile, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
-import {ICaptionThisResponse} from "./model/CaptionThisResponse";
+import { ICaptionThisResponse } from "./model/CaptionThisResponse";
 
 @Component({
   selector: 'app-root',
@@ -32,16 +32,16 @@ export class AppComponent {
           formData.append('image', file, droppedFile.relativePath)
           console.log(file);
 
-            var reader = new FileReader();
-            reader.readAsDataURL(file); // read file as data url
-            reader.onload = (event) => { // called once readAsDataURL is completed
-              this.url = event.target.result;
-              this.showImage = true;
-            }
+          var reader = new FileReader();
+          reader.readAsDataURL(file); // read file as data url
+          reader.onload = (event) => { // called once readAsDataURL is completed
+            this.url = JSON.parse(event.target.result);
+            this.showImage = true;
+          }
 
           this.http.post<ICaptionThisResponse>('http://localhost:5000/api/image', formData, {
             reportProgress: true,
-            observe: 'events' 
+            observe: 'events'
           })
             .subscribe(event => {
               if (event.type === HttpEventType.UploadProgress) {
@@ -71,4 +71,13 @@ export class AppComponent {
 
   onSelectFile(event) { // called each time file input changes
   }
+}
+
+interface FileReaderEventTarget extends EventTarget {
+  result: string
+}
+
+interface FileReaderEvent extends Event {
+  target: FileReaderEventTarget;
+  getMessage(): string;
 }

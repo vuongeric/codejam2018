@@ -24,7 +24,7 @@ async function findQuoteWithKeywords(keywords, done, printMatch = false) {
         }
     }
     // get random quote
-    if(output.length === 0) {
+    if (output.length === 0) {
         console.log('No related quotes found, generating random quote!');
         let randomIndex = Math.floor(Math.random() * quotes.length);
         const randomQuote = quotes[randomIndex];
