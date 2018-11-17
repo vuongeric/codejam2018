@@ -1,11 +1,11 @@
-var ImagesService = require('../services/ImagesService');
+var QuoteManagement = require('../managements/QuotesManagement');
 
 module.exports = {
     
     getImageCategory: function(request, done) {
 
-        ImagesService.getImageCategory(request, function(categories) {
-            return done(categories);
+        QuoteManagement.getQuote(request, function(quote) {
+            return done(quote);
         })
         
     }
