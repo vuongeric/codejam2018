@@ -10,9 +10,8 @@ var visualRecognition = new VisualRecognitionV3({
 module.exports = {
 
     getImageCategory: function (request, done) {
+        
         // Classify an image
-
-        //TODO: actually get the file uploaded
         var images_file = fs.createReadStream('./uploads/TEMP_FILE');
         var classifier_ids = ["default"];
         var threshold = 0.6;
@@ -30,7 +29,6 @@ module.exports = {
 
             else {
                 return done(response);
-                //console.log(JSON.stringify(response, null, 2))
             }
         });
     }

@@ -1,5 +1,6 @@
 var ImagesService = require('../services/ImagesService');
 var QuotesService = require('../services/QuotesService');
+var CaptionResponse = require('../models/CaptionResponse')
 
 module.exports = {
 
@@ -17,7 +18,7 @@ module.exports = {
                 return done({
                     quotes: quotes,
                     keywords: keywords
-                    });
+                });
             })
         })
 
