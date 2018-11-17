@@ -1,8 +1,33 @@
-<h1>File Upload</h1>
-<input 
-  style="display: none"
-  type="file"
-  (change)="onFileSelected($event)"
-  #fileInput>
-<button type="button" (click)="fileInput.click()">Pick File</button>
-<button type="button" (click)="onUpload()">Upload</button>
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+     <div>
+       <a>
+          CaptionThis
+       </a>
+     </div>
+    </mat-toolbar>
+    <main>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div class="center" style="top: 150px">
+  <file-drop headertext="Drop files here" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+    <span>optional content (don't set headertext then)</span>
+  </file-drop>
+  <div class="upload-table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody class="upload-name-style">
+        <tr *ngFor="let item of files; let i=index">
+          <td><strong>{{ item.relativePath }}</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
