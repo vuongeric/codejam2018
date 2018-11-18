@@ -167,9 +167,6 @@ export class AppComponent {
     this.showWelcomeMessage = false;
     if(this.showImage) {
       this.showImage = false;
-      setTimeout(() => {
-        this.showImage = true;
-      }, 300)
     }
 
 
