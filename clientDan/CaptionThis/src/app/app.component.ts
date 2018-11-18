@@ -17,15 +17,10 @@ import { IQuote } from "./model/quote";
       state('in', style({ opacity: 1 })),
 
       // fade in when created. this could also be written as transition('void => *')
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate(600)
-      ]),
+      transition(':enter', [style({height: 0, overflow: 'hidden'}), animate('.3s ease', style({height: '*'}))]),
+      transition(':leave', [style({height: '*', overflow: 'hidden'}), animate('.3s ease', style({height: 0}))])
+    ]),
 
-      // fade out when destroyed. this could also be written as transition('void => *')
-      transition(':leave',
-        animate(600, style({ opacity: 0 })))
-    ])
   ]
 })
 export class AppComponent {
@@ -241,7 +236,10 @@ export class AppComponent {
   public fileOver(event) {
     console.log(event);
     this.showImage = false;
+    this.showQuote = false;
     this.currentIndex = null;
+    this.currentHashTags = null;
+    this.quotes = null;
   }
 
   public fileLeave(event) {
