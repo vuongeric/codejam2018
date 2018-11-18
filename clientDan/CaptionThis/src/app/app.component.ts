@@ -17,14 +17,8 @@ import { IQuote } from "./model/quote";
       state('in', style({ opacity: 1 })),
 
       // fade in when created. this could also be written as transition('void => *')
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate(600)
-      ]),
-
-      // fade out when destroyed. this could also be written as transition('void => *')
-      transition(':leave',
-        animate(600, style({ opacity: 0 })))
+      transition(':enter', [style({height: 0, overflow: 'hidden'}), animate('.3s ease', style({height: '*'}))]),
+      transition(':leave', [style({height: '*', overflow: 'hidden'}), animate('.3s ease', style({height: 0}))])
     ])
   ]
 })
@@ -171,6 +165,13 @@ export class AppComponent {
     this.loading = true;
     this.files = event.files;
     this.showWelcomeMessage = false;
+    if(this.showImage) {
+      this.showImage = false;
+      setTimeout(() => {
+        this.showImage = true;
+      }, 300)
+    }
+
 
     for (const droppedFile of event.files) {
       if (droppedFile.fileEntry.isFile) {
@@ -235,13 +236,16 @@ export class AppComponent {
         console.log(this.currentQuote);
       }
       this.showQuote = true;
-    }, 600)
+    }, 300)
   }
 
   public fileOver(event) {
     console.log(event);
     this.showImage = false;
     this.currentIndex = null;
+    this.currentHashTags = null;
+    this.showQuote = false;
+    this.quotes = null;
   }
 
   public fileLeave(event) {
