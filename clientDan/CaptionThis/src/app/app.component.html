@@ -1,8 +1,10 @@
-<div class="drop-zone">
+<div class="drop-zone" style="padding: 20px" [@simpleFadeAnimation]="'in'">
   <div>
-    <file-drop headertext="Drop files here" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
-               (onFileLeave)="fileLeave($event)">
-    </file-drop>
+    <mat-card [class.mat-elevation-z2]="true">
+      <file-drop headertext="Drop Your Image Here!" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
+                 (onFileLeave)="fileLeave($event)">
+      </file-drop>
+    </mat-card>
   </div>
 </div>
 <div class="display">
@@ -11,9 +13,9 @@
        (click)="nextQuote()">
 </div>
 <div class="quote">
-  <mat-card [class.mat-elevation-z2]="true" *ngIf="showQuote"
+  <mat-card [class.mat-elevation-z2]="true" *ngIf="showQuote && !loading"
             [@simpleFadeAnimation]="showQuote ? 'in' : 'out'">
-    <mat-card-title style="text-align: center">{{currentQuote.quote}}<br/> -{{currentQuote.author}} </mat-card-title>
+    <mat-card-title style="text-align: center">{{currentQuote.quote}}<br/> - {{currentQuote.author}} <br/> {{currentHashTags}}</mat-card-title>
   </mat-card>
   <mat-spinner *ngIf="loading" style= "margin: auto; margin-top: 10px;"></mat-spinner>
 </div>

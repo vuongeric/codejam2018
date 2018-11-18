@@ -37,6 +37,7 @@ export class AppComponent {
   private loading: boolean = false;
   private currentQuote: IQuote;
   private currentIndex: number;
+  private currentHashTags;
 
   constructor(private http: HttpClient) {
   }
@@ -76,6 +77,9 @@ export class AppComponent {
                 console.log(this.response);
                 this.loading = false;
                 this.showQuote = true;
+                let hashTags = '';
+                this.response.keywords.map(keyword => hashTags += '#' + keyword.split(' ').join('') + ' ');
+                this.currentHashTags = hashTags;
                 this.nextQuote()
               }
             })
@@ -95,7 +99,7 @@ export class AppComponent {
     }
     this.showQuote = false;
     setTimeout(()=> {
-      if(this.currentIndex === undefined) {
+      if(this.currentIndex === null) {
         this.currentIndex = 0;
         this.currentQuote = this.quotes[this.currentIndex];
         console.log(this.currentQuote);

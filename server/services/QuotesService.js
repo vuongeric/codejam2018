@@ -11,12 +11,12 @@ async function findQuoteWithKeywords(keywords, done, printMatch = false) {
         const keyword = keywords[index];
         const quote = await findQuoteWithKeyword(keyword, !findSynonym, true);
         if (quote.length !== 0) {
-            output.push(quote);
+            output.push(quote[0]);
         }
     }
     console.log('output', output);
     // find quotes with related keywords
-    if (output.length === 0) {
+    if (output.length < 2) {
         for (var index in keywords) {
             const keyword = keywords[index];
             const quotes = await findQuoteWithKeyword(keyword, findSynonym, true);
