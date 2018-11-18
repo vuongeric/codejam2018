@@ -104,17 +104,10 @@ export class AppComponent {
             "sync": false
           }
         },
-        "line_linked": {
-          "enable": false,
-          "distance": 150,
-          "color": "#ffffff",
-          "opacity": 0.4,
-          "width": 1
-        },
         "move": {
           "enable": true,
           "speed": 1,
-          "direction": "none",
+          "direction": "top-right",
           "random": true,
           "straight": false,
           "out_mode": "out",

@@ -1,20 +1,16 @@
-<div class="drop-zone" style="padding: 20px" [@simpleFadeAnimation]="'in'">
+<div class="drop-zone" style="padding: 20px; text-align: center" [@simpleFadeAnimation]="'in'">
   <div>
     <mat-card [class.mat-elevation-z15]="true" style="border-radius: 10px">
-      <file-drop headertext="Drop Your Image Here!" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
+      <file-drop (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
                  (onFileLeave)="fileLeave($event)">
+
+        <mat-card-title>
+          Welcome to CaptionThis! <br/>
+          Drag an image to suggest you ideas for a great caption on your favorite social media platform!
+        </mat-card-title>
       </file-drop>
     </mat-card>
   </div>
-</div>
-<div style="text-align: center; padding: 10px; margin-left: 30%; margin-right: 30%; height: 50%;"
-     [@simpleFadeAnimation]="showWelcomeMessage ? 'in' : 'out'">
-  <mat-card style="height: 100%">
-    <mat-card-title>
-      Welcome to CaptionThis! <br/>
-      Drag an image to suggest you ideas for a great caption on your favorite social media platform!
-    </mat-card-title>
-  </mat-card>
 </div>
 <div class="display">
   <img [src]="url" class="image" *ngIf="showImage" [@simpleFadeAnimation]="showImage ? 'in' : 'out'"
