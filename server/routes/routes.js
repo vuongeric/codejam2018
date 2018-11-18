@@ -14,7 +14,7 @@ var upload = multer({ storage: storage })
 
 module.exports = function (app) {
 
-  //--------IBM IMAGE RECOGNITION--------//
+  //--------GET QUOTES WITH IMAGE--------//
   app.post("/api/image", upload.single('image'), function (req, res) {
     imageController.getImageCategory(req.params, result => {
       res.send(result);

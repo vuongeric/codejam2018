@@ -2,11 +2,13 @@ require('isomorphic-fetch');
 const quotes = require('./quotes/quotes.json');
 const SPACE = ' ';
 
+//find quotes with multiple keywords
 async function findQuoteWithKeywords(keywords, done, printMatch = false) {
     console.log('keywords', keywords);
     const output = [];
     let findSynonym = true;
-    // find quotes with keywords
+
+    // find quotes with exact keywords
     for (var index in keywords) {
         const keyword = keywords[index];
         const quote = await findQuoteWithKeyword(keyword, !findSynonym, true);
@@ -14,7 +16,7 @@ async function findQuoteWithKeywords(keywords, done, printMatch = false) {
             output.push(quote[0]);
         }
     }
-    console.log('output', output);
+
     // find quotes with related keywords
     if (output.length < 2) {
         for (var index in keywords) {
@@ -23,7 +25,8 @@ async function findQuoteWithKeywords(keywords, done, printMatch = false) {
             quotes.map(quote => output.push(quote));
         }
     }
-    // get random quote
+
+    // get random quote if none
     if (output.length === 0) {
         console.log('No related quotes found, generating random quote!');
         let randomIndex = Math.floor(Math.random() * quotes.length);
@@ -33,6 +36,7 @@ async function findQuoteWithKeywords(keywords, done, printMatch = false) {
     return done(output);
 }
 
+//find quotes using one keyword
 async function findQuoteWithKeyword(keyword, findSynonym = false, printMatch = false) {
     const possibleQuotes = [];
     if (findSynonym) {
@@ -65,6 +69,7 @@ async function findQuoteWithKeyword(keyword, findSynonym = false, printMatch = f
 
 }
 
+//use Datamuse to get related keywords 
 async function getRelatedKeywords(keyword) {
     console.log('fetching with muse');
     const res = await fetch('https://api.datamuse.com/words?ml=' + keyword);
