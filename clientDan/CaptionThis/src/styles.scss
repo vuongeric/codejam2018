@@ -3,3 +3,19 @@
 body {
     margin: 0;
 }
+
+.image-dropper{
+    display:flex;
+    height: inherit;
+    width:inherit;
+  }
+.image-dropper .content[_ngcontent-c2]{
+    height:inherit;
+    width:inherit;
+}
+
+.display .over[_ngcontent-c2]{
+    z-index: 50;
+    border-style: dotted;
+    background-color: rgba(79, 131, 228, 0.842);
+  }

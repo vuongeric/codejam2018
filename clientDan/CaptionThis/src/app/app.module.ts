@@ -21,7 +21,8 @@ import { ParticlesModule } from 'angular-particle';
     BrowserAnimationsModule,
     MaterialModule,
     MatProgressSpinnerModule,
-    ParticlesModule
+    ParticlesModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

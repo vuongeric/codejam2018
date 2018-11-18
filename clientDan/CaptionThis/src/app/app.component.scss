@@ -1,4 +1,6 @@
-mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+mat-sidenav-container,
+mat-sidenav-content,
+mat-sidenav {
   height: 100%;
 }
 
@@ -14,6 +16,11 @@ a {
 a:hover,
 a:active {
   color: lightgray;
+}
+
+.column-container{
+  display: flex;
+  flex-direction: column;
 }
 
 .navigation-items {
@@ -42,6 +49,8 @@ a:active {
 
 .drop-zone {
   padding: 0px 100px 50px 100px;
+  display: flex;
+  flex-direction: column;
 }
 
 .image {
@@ -52,11 +61,22 @@ a:active {
   border-radius: 4px;
   border: 3px solid #021a40;
 }
+.image-wrapper {
+  height: 60vh;
+  margin: auto;
+  display: flex;
+  padding: auto;
+  justify-content: center;
+}
+
+
 
 .display {
-  height: 60vh;
+  height: inherit;
   padding-top: 10px;
   padding-bottom: 10px;
+  display:flex;
+  justify-content: center;
 }
 
 .quote {
