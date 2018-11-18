@@ -38,6 +38,7 @@ export class AppComponent {
   private currentQuote: IQuote;
   private currentIndex: number;
   private currentHashTags;
+  private showWelcomeMessage = true;
 
   myStyle: object = {};
   myParams: object = {};
@@ -72,7 +73,7 @@ export class AppComponent {
           "type": "circle",
           "stroke": {
             "width": 0,
-            "color": "#000000"
+            "color": "#232741"
           },
           "polygon": {
             "nb_sides": 5
@@ -176,9 +177,9 @@ export class AppComponent {
   public dropped(event: UploadEvent) {
     this.loading = true;
     this.files = event.files;
-    for (const droppedFile of event.files) {
+    this.showWelcomeMessage = false;
 
-      // Is it a file?
+    for (const droppedFile of event.files) {
       if (droppedFile.fileEntry.isFile) {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
         fileEntry.file((file: File) => {

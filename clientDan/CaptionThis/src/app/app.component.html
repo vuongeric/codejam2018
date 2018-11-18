@@ -1,19 +1,31 @@
 <div class="drop-zone" style="padding: 20px" [@simpleFadeAnimation]="'in'">
   <div>
-    <mat-card [class.mat-elevation-z2]="true">
+    <mat-card [class.mat-elevation-z15]="true" style="border-radius: 10px">
       <file-drop headertext="Drop Your Image Here!" (onFileDrop)="dropped($event)" (onFileOver)="fileOver($event)"
-        (onFileLeave)="fileLeave($event)">
+                 (onFileLeave)="fileLeave($event)">
       </file-drop>
     </mat-card>
   </div>
 </div>
+<div style="text-align: center; padding: 10px; margin-left: 30%; margin-right: 30%; height: 50%;"
+     [@simpleFadeAnimation]="showWelcomeMessage ? 'in' : 'out'">
+  <mat-card style="height: 100%">
+    <mat-card-title>
+      Welcome to CaptionThis! <br/>
+      Drag an image to suggest you ideas for a great caption on your favorite social media platform!
+    </mat-card-title>
+  </mat-card>
+</div>
 <div class="display">
-  <img [src]="url" class="image" *ngIf="showImage" [@simpleFadeAnimation]="showImage ? 'in' : 'out'" (click)="nextQuote()">
+  <img [src]="url" class="image" *ngIf="showImage" [@simpleFadeAnimation]="showImage ? 'in' : 'out'"
+       (click)="nextQuote()">
 </div>
 <div class="quote">
-  <mat-card [class.mat-elevation-z2]="true" *ngIf="showQuote && !loading" [@simpleFadeAnimation]="showQuote ? 'in' : 'out'">
-    <mat-card-title style="text-align: center">{{currentQuote.quote}}<br /> - {{currentQuote.author}} <br />
-      {{currentHashTags}}</mat-card-title>
+  <mat-card [class.mat-elevation-z15]="true" *ngIf="showQuote && !loading"
+            [@simpleFadeAnimation]="showQuote ? 'in' : 'out'">
+    <mat-card-title style="text-align: center">{{currentQuote.quote}}<br/> - {{currentQuote.author}} <br/>
+      {{currentHashTags}}
+    </mat-card-title>
   </mat-card>
   <mat-spinner *ngIf="loading" style="margin: auto; margin-top: 10px;"></mat-spinner>
 </div>
