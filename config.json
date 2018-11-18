@@ -2,11 +2,10 @@
     "server": {
         "port": 5000
     },
-    "apikey": "8oGFDd39M0h4p2eu48NcSJP6OB2SH2bh8drVC7RqVD50",
-    "iam_apikey_description": "Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:watson-vision-combined:us-south:a/19947c2168a343feba5ec50d04aa6d09:768fc172-0c05-49aa-97d3-b78cddc2733e::",
-    "iam_apikey_name": "auto-generated-apikey-c8e88de6-0397-41a8-ac9c-8ff6a5e5e1fe",
-    "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Writer",
-    "iam_serviceid_crn": "crn:v1:bluemix:public:iam-identity::a/19947c2168a343feba5ec50d04aa6d09::serviceid:ServiceId-0959983b-7c89-4fd0-802e-5e66ab1571e7",
+    "apikey": "VYIKrIWo7Q2Ih43CjEjOMigjNZxOOrTR1wl6xWfYRB51",
+    "iam_apikey_description": "Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:watson-vision-combined:us-south:a/59186b65f703419e9192cda6dfa9e44a:bdc051a9-082c-4b88-bfb9-89ca443f7d61::",
+    "iam_apikey_name": "auto-generated-apikey-a7e8a506-4f55-4ff4-bf4c-3fe062706ddb",
+    "iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+    "iam_serviceid_crn": "crn:v1:bluemix:public:iam-identity::a/59186b65f703419e9192cda6dfa9e44a::serviceid:ServiceId-0e358041-8e15-4382-9b63-8e1d7e01861b",
     "url": "https://gateway.watsonplatform.net/visual-recognition/api"
 }
-
