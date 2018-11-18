@@ -57,3 +57,19 @@ a:active {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+.quote {
+  padding: 20px;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}

@@ -1,6 +1,4 @@
-<div class="display">
-  <img [src]="url" class="image" *ngIf="showImage"> <br/>
-</div>
+<!--import { MatProgressSpinnerModule } from '@angular/material';-->
 
 <div class="drop-zone">
   <div>
@@ -9,3 +7,17 @@
     </file-drop>
   </div>
 </div>
+<div class="display">
+  <img [src]="url" class="image" *ngIf="showImage"
+       [@simpleFadeAnimation]="showImage ? 'in' : 'out'">
+</div>
+<div class="quote">
+  <mat-card [class.mat-elevation-z2]="true" *ngIf="showQuote"
+            [@simpleFadeAnimation]="showQuote ? 'in' : 'out'">
+    <mat-card-title style="text-align: center">"Every child is an artist. The problem is how to remain an artist once he
+      grows up."
+    </mat-card-title>
+  </mat-card>
+  <mat-spinner *ngIf="loading" style="margin: auto; padding: 10px"></mat-spinner>
+</div>
+
