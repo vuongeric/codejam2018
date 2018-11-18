@@ -35,7 +35,7 @@ export class AppComponent {
           var reader = new FileReader();
           reader.readAsDataURL(file); // read file as data url
           reader.onload = (event) => { // called once readAsDataURL is completed
-            this.url = (<HTMLInputElement>event.target).value;
+            this.url = event.currentTarget.result;
             this.showImage = true;
           }
 
