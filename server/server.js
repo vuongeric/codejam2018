@@ -2,9 +2,6 @@ var express = require('express')
 var config = require('../config');
 var app = express()
 var port = config.server.port || 5000;
-var mongoDb = require('./lib/db');
-
-mongoDb.connectToServer();
 
 const bodyParser = require('body-parser');
 
