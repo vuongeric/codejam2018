@@ -35,8 +35,8 @@ export class AppComponent {
   private showImage: boolean = false;
   private showQuote: boolean = false;
   private loading: boolean = false;
-  private currentQuote: string = '';
-  private currentIndex: string = '';
+  private currentQuote: IQuote;
+  private currentIndex: number;
 
   constructor(private http: HttpClient) {
   }
@@ -90,21 +90,31 @@ export class AppComponent {
   }
 
   nextQuote() {
-    // if(this.quotes === undefined || this.quotes.length === 0) {
-    //   return;
-    // }
-    // console.log(this.quotes);
-    // this.currentIndex += 1;
-    // this.currentIndex = this.currentIndex % this.quotes.length;
+    if(this.quotes === undefined || this.quotes.length === 0) {
+      return;
+    }
+    this.showQuote = false;
+    setTimeout(()=> {
+      if(this.currentIndex === undefined) {
+        this.currentIndex = 0;
+        this.currentQuote = this.quotes[this.currentIndex];
+        console.log(this.currentQuote);
+      } else {
+        console.log(this.currentIndex);
+        this.currentIndex += 1;
+        this.currentIndex = this.currentIndex % this.quotes.length;
+        console.log(this.currentIndex);
+        this.currentQuote = this.quotes[this.currentIndex];
+        console.log(this.currentQuote);
+      }
+      this.showQuote = true;
+    }, 600)
   }
 
-  toggleShowQuote() {
-    this.showQuote = !this.showQuote;
-    console.log('showQuote', this.showQuote);
-  }
   public fileOver(event) {
     console.log(event);
     this.showImage = false;
+    this.currentIndex = null;
   }
 
   public fileLeave(event) {
