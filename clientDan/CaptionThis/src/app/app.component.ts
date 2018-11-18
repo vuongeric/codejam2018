@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpEventType, HttpHeaders } from '@angular/common/http';
-import { UploadEvent, UploadFile, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
-import { ICaptionThisResponse } from "./model/CaptionThisResponse";
+import {Component, OnInit} from '@angular/core';
+import {HttpClient, HttpEventType, HttpHeaders} from '@angular/common/http';
+import {UploadEvent, UploadFile, FileSystemFileEntry, FileSystemDirectoryEntry} from 'ngx-file-drop';
+import {ICaptionThisResponse} from "./model/CaptionThisResponse";
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,8 @@ export class AppComponent {
   private url: any;
   private showImage: boolean = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   public files: UploadFile[] = [];
 
@@ -26,16 +27,13 @@ export class AppComponent {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
         fileEntry.file((file: File) => {
 
-          console.log(droppedFile.relativePath, file);
-          console.log(droppedFile);
           const formData = new FormData()
           formData.append('image', file, droppedFile.relativePath)
-          console.log(file);
 
           var reader = new FileReader();
           reader.readAsDataURL(file); // read file as data url
           reader.onload = (event) => { // called once readAsDataURL is completed
-            this.url = event.currentTarget.result;
+            this.url = reader.result;
             this.showImage = true;
           }
 
