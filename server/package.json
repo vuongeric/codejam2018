@@ -29,7 +29,7 @@
     "es6-promise": "^4.2.5",
     "express": "^4.16.3",
     "isomorphic-fetch": "^2.2.1",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^9.0.0",
     "jss": "latest",
     "material-ui": "^0.20.2",
     "material-ui-rating": "^2.0.0",
